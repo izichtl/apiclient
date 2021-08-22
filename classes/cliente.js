@@ -33,7 +33,7 @@ Cliente.prototype.processSelector = function(req){
 //VERIFICA SE O TOKEN É VÁLIDO
 Cliente.prototype.isAuth = function(req){
     let response = false
-    const LOGIN_KEY = process.env.LOGIN_KEY
+    const LOGIN_KEY = 'LOGIN_KEY'
     
     let payload = jwt.verify(req.headers.authorization, LOGIN_KEY, { algorithm: "HS256" }, (err, user) => {
         

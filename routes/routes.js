@@ -6,12 +6,13 @@ const {Cliente} = require('../classes/cliente');
 
 module.exports = function(app) {
     app.get('/login', function(req, res) {
-        let LOGIN_KEY = process.env.LOGIN_KEY
-        let time = 60*2*8*8
+        let LOGIN_KEY = 'LOGIN_KEY'
+        let time = 60*4
         let macapaToken = jwt.sign({ "CHAVE_CLIENTE": 'XBhIiwiaWF0I', "id": '01' }, LOGIN_KEY , { algorithm: 'HS256', expiresIn: time});
         let varejaoToken = jwt.sign({ "CHAVE_CLIENTE": 'XBhIiwiaWF0I', "id": '02' }, LOGIN_KEY , { algorithm: 'HS256', expiresIn: time});
         res.send(`
-                <h1>Login - JWT ${LOGIN_KEY}</h1> 
+                <h1>Login - JWT </h1> 
+                <h5>Chave: ${LOGIN_KEY}</h5>
                 <h5>Válido por: ${time} segundos</h5>
                 <p>Atualize a página para gerar um novo token
                 <h4>Token de Login: Cliente - Macapá</h4> 
