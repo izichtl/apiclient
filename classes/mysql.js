@@ -1,12 +1,5 @@
 const mysql = require('mysql');
 
-//var con = mysql.createConnection({
-//    host: "localhost",
-//     user: "yourusername",
-//    password: "yourpassword"
-//  });
-
-
 function mysqlDB(){
     this.dbconfig = {
         host: "localhost",
