@@ -1,2 +1,3 @@
 /node_modules
 /vue_docker/node_modules
+/vue_docker/dist
