@@ -1,5 +1,5 @@
 /node_modules
-/task_info
+/taskinfo
 /frontend/node_modules
 /frontend/dist
 .env
