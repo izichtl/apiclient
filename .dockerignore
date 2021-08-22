@@ -1,6 +1,7 @@
 .git
 .gitignore
 node_modules
+task_info
 npm-debug.log
 Dockerfile*
 docker-compose*

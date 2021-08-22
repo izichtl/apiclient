@@ -12,7 +12,7 @@ module.exports = function(app) {
         let varejaoToken = jwt.sign({ "CHAVE_CLIENTE": 'XBhIiwiaWF0I', "id": '02' }, LOGIN_KEY , { algorithm: 'HS256', expiresIn: time});
         res.send(`
                 <h1>Login - JWT </h1> 
-                <h5>Chave: ${LOGIN_KEY}</h5>
+                <h5>Chave: ${process.env.CHAVE_SECRETA}</h5>
                 <h5>Válido por: ${time} segundos</h5>
                 <p>Atualize a página para gerar um novo token
                 <h4>Token de Login: Cliente - Macapá</h4> 
