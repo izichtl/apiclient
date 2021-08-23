@@ -33,25 +33,24 @@ postgreDB.prototype.postgreSelect = function(requisicao, resposta){
 }
 postgreDB.prototype.postgreInsert = function(data, msg, resposta){
     const pool = new Pool(this.dbconfig);
-    let check = data.forEach(element => {    
-        pool.query(
-                `INSERT INTO contacts (nome, celular ) VALUES ('${element.name}', '${element.pais}${element.ddd}${element.cellphone_a}${element.cellphone_b}')`,
-                (err, res) => { 
+    let array = data.contacts
+    data.forEach(element => {
+        
+    pool.query(
+    `INSERT INTO contacts (nome, celular ) VALUES ('${element.name}', '${element.pais}${element.ddd}${element.cellphone_a}${element.cellphone_b}')`,
+    (err, res) => { 
+
         if (err){
-            
+            msg = 'Erro ao inserir dados - Postgre'
+            resposta.json({"message" : `${msg}`  })
         }else{
-            
+            msg = 'Dados inseridos - Postgre'
+            resposta.json({"message" : `${msg}`  })
         }
+        
+        return res
         });
     });
-    if(!check){
-        msg = 'Erro ao inserir dados - Postgres'
-        resposta.json({"message" : `${msg}`  })
-
-    }else{
-        msg = 'Dados inseridos - Posgres'
-        resposta.json({"message" : `${msg}`  })
-    }
     pool.end();
 }
 

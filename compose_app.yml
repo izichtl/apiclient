@@ -1,8 +1,8 @@
-
   app:
     depends_on:
       - mysql
       - postgresql
+    image: apiw1
     build: .
     restart: unless-stopped
     command: npm start

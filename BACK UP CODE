@@ -1,9 +1,0 @@
-//app.use('/dist', express.static('dist'));
-//app.use('/dist/css', express.static('css'));
-//app.use('/dist/js', express.static('image'));
-
-
-
-
-//app.use('/',serveStatic(path.join(__dirname, './dist')))
-//app.use('/about',serveStatic(path.join(__dirname, './dist')))

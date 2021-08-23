@@ -23,7 +23,6 @@ Cliente.prototype.processSelector = function(requisicao, msg, resposta){
     
         if(this.data.id === '01'){
             let myBank = mysql.mySqlInsert(dataPhone, msg, resposta);
-            console.log(myBanck)
             msg = myBank
             
         

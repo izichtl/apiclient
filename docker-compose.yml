@@ -22,17 +22,3 @@ services:
       POSTGRES_PASSWORD: "admin"
       POSTGRES_USER: "admin"
 
-  app:
-    depends_on:
-      - mysql
-      - postgresql
-    image: apiw1
-    build: .
-    restart: unless-stopped
-    command: npm start
-    environment:
-    - CHAVE_SECRETA=CHAVE_AQUI
-    ports:
-      - "8080:8080"
-    stdin_open: true
-    tty: true
