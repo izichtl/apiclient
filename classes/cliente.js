@@ -1,7 +1,8 @@
 const jwt = require('jsonwebtoken');
 const {postgreDB} = require('./postgre');
 const {mysqlDB} = require('./mysql');
-const {ClientValidation} = require('./ClientValidation');
+const {ClientValidation} = require('./clientValidation');
+const {cleanData} = require('./cleanData');
 
 function Cliente(){
 
@@ -14,22 +15,26 @@ Cliente.prototype.processSelector = function(req){
     const postgre = new postgreDB();
     const mysql = new mysqlDB();
     const validation = new ClientValidation();
+    
     if(validation.keyCheck(this.data)){
+        let dataProcess = new cleanData();
+        let dataName = dataProcess.cleanName(req.body)
+        let dataPhone = dataProcess.cleanCellphone(dataName)
     
         if(this.data.id === '01'){
-        console.log('DATABASE: - A')
-        console.log(this.data)
-        postgre.postgreInsert(req.body);
-        postgre.postgreSelect();
-        //postgre.isConected();
-        return true
+            
+            
+            
+        
+        //  postgre.postgreInsert(dataPhone);
+        //  postgre.postgreSelect();
+        //  postgre.isConected();
+            return true
         
         }
         if(this.data.id === '02'){
-        console.log('DATABASE: - B')
-        console.log(this.data)
-        mysql.mySqlInsert(req.body);
-        mysql.mysqlSelect();
+            mysql.mySqlInsert(dataPhone);
+            
         return true
         }
     }

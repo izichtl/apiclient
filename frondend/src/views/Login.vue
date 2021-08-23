@@ -1,17 +1,17 @@
 <template>
   <div class="home">
-    <Apidoc />
+    <Token />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Apidoc from '@/components/Apidoc.vue'
+import Token from '@/components/Token.vue'
 
 export default {
   name: 'Home',
   components: {
-    Apidoc
+    Token
   }
 }
 </script>

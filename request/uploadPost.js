@@ -1,10 +1,8 @@
 const jwt = require('jsonwebtoken');
 const {Autorizacao} = require('../classes/autho');
 const {Cliente} = require('../classes/cliente');
-function uploadPost(){
-    this.client_a = 'XBhIiwiaWF0I'
-    this.client_b = 'ABgISwipiF9L'
 
+function uploadPost(){
 }
 
 uploadPost.prototype.processRequest= function(requisicao){
