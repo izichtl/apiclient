@@ -10,7 +10,7 @@ function loginGet(){
 }
 
 loginGet.prototype.createSession= function(requisicao){
-        let time = 60*4*7
+        let time = 60*5
         this.token_a = jwt.sign({ "CHAVE_CLIENTE": this.client_a, "id": '01' }, this.LOGIN_KEY , { algorithm: 'HS256', expiresIn: time});
         this.token_b = jwt.sign({ "CHAVE_CLIENTE": this.client_b, "id": '02' }, this.LOGIN_KEY , { algorithm: 'HS256', expiresIn: time});
 }

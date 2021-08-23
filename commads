@@ -1,0 +1,22 @@
+
+// roda o postgres dentro do docker
+docker exec -it docker_postgresql_1 psql -U admin -W admin 
+
+//roda postgres no container cli
+psql -U admin -W admin 
+
+// roda o mysql dentro do docker
+docker exec -it docker_mysql_1 mysql -u admin -p
+
+//roda mysql no container cli
+mysql -u admin -p
+
+// roda o projeto usando compose
+docker-compose up
+
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/izichtl/apiclient.git
+git push -u origin main

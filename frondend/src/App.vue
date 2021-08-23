@@ -1,14 +1,13 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Api Doc</router-link> |
-      <router-link to="/Login">Login</router-link> |
-      <router-link to="/data">Clientes</router-link>
+      <router-link to="/"> Api Doc </router-link> |
+      <router-link to="/Login"> Login </router-link> |
+      <router-link to="/data"> Clientes </router-link>
     </div>
     <router-view/>
   </div>
 </template>
-
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

@@ -30,9 +30,8 @@ module.exports = function(app) {
     //Rota para upload de informação
     app.post('/api', async (requisicao, resposta) =>{
         let process = new uploadPost();
-        let msg = process.processRequest(requisicao)
-    resposta.json({"message" : `${msg}`  })
+        let msg = process.processRequest(requisicao, resposta)
     
-
+        
     });
 };

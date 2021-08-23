@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const {postgreDB} = require('./postgre');
 const {mysqlDB} = require('./mysql');
-const {ClientValidation} = require('./clientValidation');
+const {ClientValidation} = require('./clientvalidation');
 const {cleanData} = require('./cleanData');
 
 function Cliente(){
@@ -11,35 +11,33 @@ function Cliente(){
 
 }
 //IDENTIFICA O CLIENTE E ENVIA AO BANCO
-Cliente.prototype.processSelector = function(req){
+Cliente.prototype.processSelector = function(requisicao, msg, resposta){
     const postgre = new postgreDB();
     const mysql = new mysqlDB();
     const validation = new ClientValidation();
     
     if(validation.keyCheck(this.data)){
         let dataProcess = new cleanData();
-        let dataName = dataProcess.cleanName(req.body)
+        let dataName = dataProcess.cleanName(requisicao.body)
         let dataPhone = dataProcess.cleanCellphone(dataName)
     
         if(this.data.id === '01'){
+            let myBank = mysql.mySqlInsert(dataPhone, msg, resposta);
+            console.log(myBanck)
+            msg = myBank
             
-            
-            
-        
-        //  postgre.postgreInsert(dataPhone);
-        //  postgre.postgreSelect();
-        //  postgre.isConected();
-            return true
         
         }
         if(this.data.id === '02'){
-            mysql.mySqlInsert(dataPhone);
+            let pgBank = postgre.postgreInsert(dataPhone, msg, resposta);
+            msg = pgBank
             
-        return true
         }
+    }else{
+        msg = 'Chave Cliente Não Autorizada'
+        resposta.json({"message" : `${msg}`  })
     }
-    console.log('CHAVE') 
-    return false
+    return true
 }
 
 //VERIFICA SE O TOKEN É VÁLIDO

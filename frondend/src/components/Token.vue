@@ -2,16 +2,16 @@
   <div class="Apidoc">
     <div class="texto">
     <h1>Login</h1>
-    <h3>Token Cliente A - MySql.</h3>
-    <p>Token válido por 03 minutos.</p>
+    <h3>Cliente_A token - Id 01 /MySql.</h3>
+    <p>JWT válido por 05 minutos.</p>
     <textarea
       :value="token_a"
       @input="token_a = $event.target.value"
       rows="7"
       cols="40"
     ></textarea>
-    <h3>Token Cliente B - Postgres.</h3>
-    <p>Token válido por 03 minutos.</p>
+    <h3>Cliente_B token - Id 02 /Postgres.</h3>
+    <p>JWT válido por 05 minutos.</p>
     <textarea
       :value="token_b"
       @input="token_b = $event.target.value"

@@ -1,0 +1,5 @@
+MYSQL
+CREATE table contacts ( id serial PRIMARY KEY, nome VARCHAR ( 200 ) NOT NULL, celular VARCHAR ( 20 ) NOT NULL );  
+
+POSTGRES
+CREATE table contacts (id serial PRIMARY KEY, nome VARCHAR ( 100 ) NOT NULL, celular VARCHAR ( 13 ) NOT NULL);
